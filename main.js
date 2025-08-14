@@ -1,9 +1,11 @@
 
+
 const tl = gsap.timeline();
 const link=document.querySelector(".link");
 
 //animations
-gsap.from(".clip-top,.clip-bottom",2,{
+function loader(){
+  gsap.from(".clip-top,.clip-bottom",2,{
     delay:1,
     height:"50vh",
     ease:"power4.inOut"
@@ -39,8 +41,16 @@ gsap.to(".clip-bottom",2,{
 gsap.to(".clip-top .marque,.clip-bottom .marque,.clip-center .marque span",1,{
     delay:6,
     opacity:0,
-    ease:"power2.inOut"
+    ease:"power2.inOut",
+    onComplete: () => {
+    console.log("Animation finished!");
+    document.querySelector(".clip-center").style.background= "transparent";
+    document.querySelector(".center").style.color= "rgb(224, 222, 222)";
+    
+  }
 })
+}
+loader();
 
 //debugging and action play
 document.addEventListener("DOMContentLoaded", () => {
