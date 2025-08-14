@@ -366,14 +366,58 @@ b{
     width: 25vw;
     background: var(--1st);
     border-radius: 8px;
+    display: flex
+;
+    align-items: center;
+    padding: 20px;
+}
+.text{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+
+}
+.emoji{
+    width: 30%;
+    font-size: 5vw;
+}
+.brag-h{
+    font-family: var(--1st-font);
+    color: var(--2nd);
+}
+.brag-p{
+    font-family: var(--2nd-font);
+    color: var(--2nd);
+    opacity: 0.8;
+}
+.icon{
+    font-size: 6vw;
+    display: none;
 }
 /* media queries */
 @media (max-width:1000px) {
     .logo{
         
     }
+    .brag{
+        height: 55px;
+        width: 300px;
+    }
+    .brag-h{
+        font-size: 4.5vw;
+    }
+    .brag-p{
+        font-size: 2vw;
+    }
+    .third{
+        flex-direction: column;
+    }
     .nav1{
-        justify-content: center;
+        /* justify-content: center; */
+        padding: 60px 40px;
+    }
+    .icon{
+        display: block;
     }
     .links{
         display: none;
