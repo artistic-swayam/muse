@@ -408,7 +408,7 @@ b{
 
 
 .logo-s{
-    height: 50px;
+    height: 70px;
 }
 
 .nav1{
@@ -553,6 +553,9 @@ b{
     }
     .logo-l{
     height: 35vw;
+    }
+    .logo-s{
+        height:50px;
     }
 }
 @media (max-width:600px) {
