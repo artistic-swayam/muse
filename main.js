@@ -49,7 +49,76 @@ gsap.to(".clip-top .marque,.clip-bottom .marque,.clip-center .marque span",1,{
   }
 })
 }
-loader();
+function menu(){
+  const openBtn = document.querySelector(".open");
+const closeBtn = document.querySelector(".close");
+const menu = document.querySelector(".menu");
+
+openBtn.addEventListener("click", () => {
+  menu.style.display = "block";
+  gsap.fromTo(menu, 
+    { x: "-100%" }, 
+    { x: "0%", duration: 0.6, ease: "power3.out" }
+  );
+  openBtn.style.display = "none";
+  closeBtn.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  gsap.to(menu, { 
+    x: "-100%", 
+    duration: 0.6, 
+    ease: "power3.in",
+    onComplete: () => { 
+      menu.style.display = "none"; 
+      closeBtn.style.display = "none"; // hide close button only after animation
+      openBtn.style.display = "block"; 
+    }
+  });
+});
+}
+function reveal(){
+  gsap.registerPlugin(SplitText) 
+let split = SplitText.create(".split", {
+  type: "words, lines", 
+  mask: "lines",
+  linesClass: "line++", 
+
+});
+
+gsap.from(split.lines, {
+  duration: 1.2, 
+  y: 100,
+  rotate: 4,   
+      // animate from 100px below
+  opacity: 0,   // fade in from opacity: 0 and visibility: hidden
+  stagger: 0.1,
+    // 0.05 seconds between each
+});
+let split_others = SplitText.create(".split-others", {
+  type: "words, lines", 
+  mask: "lines",
+  linesClass: "line++", 
+
+});
+gsap.from(split_others.lines, {
+  duration: .8,
+  y: 100,
+  rotate: 4,
+  opacity: 0,
+  stagger: 0.1,
+  scrollTrigger: {
+    trigger: ".split-others",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse",
+    // for debugging
+  }
+});
+  
+}
+reveal();
+menu();
+//loader();
 
 //debugging and action play
 document.addEventListener("DOMContentLoaded", () => {
@@ -122,7 +191,8 @@ requestAnimationFrame(raf);
 
 
 // Register the plugin
-gsap.registerPlugin(SplitText);
+
+
 
 // Hover handler
 
@@ -136,9 +206,9 @@ elements.forEach((el) => {
 
     gsap.from(splitText.chars, {
       opacity:0,
-      y: 10,
-      stagger: 0.04,
-      duration: 0.3,
+      y: 20,
+      stagger: 0.06,
+      duration: 0.7,
       ease: "power2.out",
     });
   });
@@ -167,4 +237,3 @@ buttons.forEach(btn => {
     hoverCircle.style.transformOrigin = `center center`;
   });
 });
-
