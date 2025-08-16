@@ -3,52 +3,7 @@ const tl = gsap.timeline();
 const link=document.querySelector(".link");
 
 //animations
-function loader(){
-  gsap.from(".clip-top,.clip-bottom",2,{
-    delay:1,
-    height:"50vh",
-    ease:"power4.inOut"
-})
-gsap.to(".marque",3.5,{
-    delay:0.75,
-    top:"50%",
-    ease:"power4.inOut"
-})
-gsap.from(".clip-top .marque,.clip-bottom .marque",5,{
-    delay:1,
-    left:"100%",
-    ease:"power3.inOut"
-})
-gsap.from(".clip-center .marque",5,{
-    delay:1,
-    left:"-50%",
-    
-    ease:"power3.inOut"
-})
-//
 
-gsap.to(".clip-top",2,{
-    delay:6,
-    clipPath:"inset(0 0 100% 0)",
-    ease:"power4.inOut"
-})
-gsap.to(".clip-bottom",2,{
-    delay:6,
-    clipPath:"inset(100% 0 0 0)",
-    ease:"power4.inOut"
-})
-gsap.to(".clip-top .marque,.clip-bottom .marque,.clip-center .marque span",1,{
-    delay:6,
-    opacity:0,
-    ease:"power2.inOut",
-    onComplete: () => {
-    console.log("Animation finished!");
-    document.querySelector(".clip-center").style.background= "transparent";
-    document.querySelector(".center").style.color= "rgb(224, 222, 222)";
-    
-  }
-})
-}
 function menu(){
   const openBtn = document.querySelector(".open");
 const closeBtn = document.querySelector(".close");
@@ -116,34 +71,34 @@ gsap.from(split_others.lines, {
 });
   
 }
+ gsap.registerPlugin(ScrollTrigger);
+function changeBg(){
+  gsap.to(".change", {
+    backgroundColor: "#EFDBA0",
+    scrollTrigger: {
+      trigger: ".about",     // section to watch
+      start: "top center",   // when top of .about hits center of viewport
+      end: "bottom center",  // when bottom of .about hits center
+      scrub: true,           // smooth animation tied to scroll
+    }
+  });
+
+  // Optional: change back to original when leaving
+  gsap.to(".change", {
+    backgroundColor: "#392035",
+    scrollTrigger: {
+      trigger: ".about",
+      start: "bottom center",
+      end: "bottom top",
+      scrub: true,
+    }
+  });
+}
 reveal();
 menu();
+changeBg();
 //loader();
 
-//debugging and action play
-document.addEventListener("DOMContentLoaded", () => {
-    const video = document.querySelector(".show-reel");
-    video.play().catch(() => {
-      console.log("Autoplay blocked. User interaction required.");
-    });
-  });
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.querySelector(".show-reel");
-
-  // Play video on user interaction
-  const playVideo = () => {
-    video.play().then(() => {
-      console.log("Video playback started.");
-    }).catch((error) => {
-      console.log("Video playback failed:", error);
-    });
-  };
-  let clip=document.querySelector(".clip-center");
-  // Trigger play on any user interaction
-  document.addEventListener("click", playVideo);
-  document.addEventListener("touchstart", playVideo);
-  document.addEventListener("keydown", playVideo);
-});
 
 
 //shery js
