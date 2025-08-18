@@ -25,6 +25,7 @@
     --1st-font: 'Jazmin Alt Medium';
     --2nd-font: 'SF Pro Display';
     --3rd-font: 'Proza Libre', sans-serif;
+    --4th-font: "Lato", sans-serif;
     --links-pad: 20px;
     --links-pad-small: 5px 0;
     --link-pad: 10px 50px;
@@ -54,24 +55,21 @@ body{
     left: 0;
     z-index: 5;
     background-color:  #392035;
+
+ position: relative;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 .home::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #392035;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 250%;
-    transform: rotate(180deg);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("pattern.png") repeat;
+  filter: opacity(0.2); /* fades only the pattern */
+  z-index: 0;
 }
 .logo{
     font-weight: bold;
@@ -143,14 +141,14 @@ body{
     padding: 50px 0;
     text-align: center;
 }
-.btn{
+.button{
     position: relative;
     padding: 15px 30px;
     background: #EFDBA0;
     color: var(--1st);
     border-radius: 8px;
 }
-.btn .hover-circle{
+.button .hover-circle{
         position: absolute;
     width: 50px;
     height: 50px;
@@ -165,15 +163,15 @@ body{
     z-index: 0;
 }
 
-  .btn span {
+  .button span {
     position: relative;
     z-index: 1;
     transition: color 0.6s ease;
   }
-  .btn:hover .hover-circle {
+  .button:hover .hover-circle {
     transform: scale(7);
   }
-   .btn:hover span {
+   .button:hover span {
     color: var(--2nd);
     
   }
@@ -193,7 +191,7 @@ body{
     font-size: .8vw;
     font-family: var(--2nd-font);
     padding:0;
-    opacity: 0.6;
+
 }
 .tall{
     height: 60vh;
@@ -283,7 +281,12 @@ b{
 
 .nav1{
         /* justify-content: center; */
-        padding: 50px 40px;
+        padding: 30px 40px 10px 30px;
+        border-bottom: 1px solid #EFDBA0;
+        position: fixed;
+        top: 0;
+        background: #392035;
+
     }
     .loader{
         display: none;
@@ -294,13 +297,17 @@ b{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+        padding: 200px 0;
 }
 .logo-l{
     height: 25vw;
+    border-radius: 40px;
     }
 .type p {
         font-family: "Proza Libre", sans-serif;
         color: #EFDBA0;
+        font-size: 1.4vw;
+        padding: 10px 0;
 }
 .icon-area{
     display: flex;
@@ -327,7 +334,7 @@ b{
     flex-direction: column;
     justify-content: center;
     
-    height: 70%;
+    height: 100%;
 }
 .links a{
     font-size: 5vw;
@@ -352,140 +359,190 @@ b{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-
-}
-.up{
-    height: 60%;
-    width: 100%;
-    display: flex;
-    padding: 50px 40px 0 40px;
-
-}
-.about-txt ,  .f-txt{
-    padding: 30px;
-}
-.about-txt{
-    width: 60%;
-
-}
-.about-txt b{
-    font-size: 1.6vw;
-    color: #EFDBA0;
-    font-family: var(--1st-font);
-    text-transform: uppercase;
-}
-.aim{
-    width: 40%;
-    opacity: 0.8;
-    display: flex;
-    align-items: start;
-}
-.aim-txt b{
-    font-size: 1.5vw;
-    
-}
-
-.aim-txt{
-    padding: 30px;
-    border-radius: 8px;
     height: 100%;
-    border-radius: 7px 7px 7px 0;
-    background: #EFDBA0;
+    padding: 30px 80px;
+    gap: 60px;
+    background-color: #392035;
+     position: relative;
 }
-.img-a{
-    height: 100%;
-}
-.aim-img{
-    background: #392035;
-    border-radius: 7px;
-    padding: 2vw;
-    height: 30%;
-}
-.area{
-    background: #EFDBA0;
-    border-radius: 7px 0 0  7px;
-    height: 70%;
-}
-.down{
-    height: 40%;
-    width: 100%;
-    padding: 50px 40px;
-
-}
-.f-txt{
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    display: flex;
-    background: #EFDBA0;
-    opacity: 0.8;
-    gap: 20px;
-}
-.left{
+.work{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    align-items: center;
+    height: 100%;
+    padding: 30vh 80px;
+    gap: 60px;
+    background-color: #392035;
+     position: relative;
 }
-.f-img{
-    width: 90px;
-    border-radius: 60px;
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("pattern.png") repeat;
+  filter: opacity(0.2); /* fades only the pattern */
+  z-index: 0;
 }
-.f-head{
+.work::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("pattern.png") repeat;
+  filter: opacity(0.2); /* fades only the pattern */
+  z-index: 0;
+}
+.about h1 , b ,img{
+    z-index: 1;
+    position: relative;
+}
+.work h1 , b ,img , div{
+    z-index: 1;
+    position: relative;
+}
+.pages{
+    display: flex;
+    align-items: center;
+    gap: 2.5vw;
+}
+.pages a{
     font-family: var(--1st-font);
-    font-size: 1.6vw;
+    font-size: .8vw;
 }
-/* media queries */
-@media (max-width:1100px) {
-    .f-head{
-        font-size: 2.6vw;
+
+
+
+
+
+    .f-txt{
+        display: flex;
+        align-items: center;
+        gap: 5vw;
     }
-    .up{
-        flex-direction: column;
-        gap: 20px;
+    .about b{
+        color: #EFDBA0;
+        font-family: var(--4th-font);
+        font-size: 1.2vw;
     }
-    .about-txt{
-        width: 100%;
-        padding: 0;
-        
+    .pattern img{
+        width: 200px;
     }
-    .aim{
-        width: 100%;
-    }
-    .aim-txt b{
-    font-size: 2vw;
-    
-}
-.f-text b{
-    font-size: 2vw;
-    
-}
-    .aim-img{
-        height: 70%;
-    }
-    .area{
-        height: 30%;
-    }
-    .up{
-        height: 100%;
+    .two{
+       
     }
     .aim-txt{
-        font-size: 2.6vw;
+        display: flex;
+        /* align-items: center; */
+        justify-content: space-between;
     }
-    .down{
-        height: 100%;
+    .aim-txt b{
+        width: 40%;
     }
-    .about-txt b{
-        font-size: 2.6vw;
+    .aim-head{
+        font-family: var(--1st-font);
+        font-size: 1.1vw;
+        color: #EFDBA0;
+        padding: 30px 0;
+        text-transform: uppercase;
     }
-    .f-txt{
-        flex-direction: column;
-    }
+    
     .f-img{
-        width: 60px;
+        width: 30%;
+        border-radius: 8px;
     }
 
+
+
+
+
+.carousel{
+    position: relative;
+    width: 25%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;        /* ✅ let image decide height */
+  object-fit: contain; /* show full image */
+  flex-shrink: 0;
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;       
+  color: #fff;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s;
+
+}
+
+.btn:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.btn.left { left: 10px; }
+.btn.right { right: 10px; }
+
+
+.nav1{
+    z-index: 50;
+}
+.center{
+    z-index: 10;
+}
+.work-row{
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    width: 100%;
+}
+.client-work{
+    background-color: #131313;
+    height: 30vh;
+    width: 40vw;
+    border-radius: 10px;
+}
+.acc-img{
+    display: flex;
+    align-items: center;
+}
+.c1{
+    background-image: url("c1.jpeg");
+    background-size: cover;
+}
+.c1r{
+    background-image: url("c1r.jpeg");
+    background-size: cover;
+}
+.client-img{
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+.client-img div{
+    width: 200px;
+    height: 100%;
+}
+@media (max-width:1100px) {
+    
+    .pages{
+        display: none;
+    }
+    .icon-area{
+        display: block;
+    }
         .o-link {
         font-size: var(--font-small);
     }
@@ -563,8 +620,32 @@ b{
     .logo-s{
         height:50px;
     }
+    
 }
-@media (max-width:600px) {
+@media (max-width:750px) {
+    .about b{
+        font-size: 2.5vw;
+    }
+    .aim-head{
+        font-size: 3vw;
+    }
+    .carousel{
+        width: 100%;
+    }
+    .aim-txt{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .f-txt{
+        flex-direction: column;
+        align-items: center;
+    }
+    .f-img{
+        width: 100%;
+    }
+    .aim-txt b{
+        width: 100%;
+    }
     .icon{
         font-size: 6vw;
     }
@@ -582,6 +663,12 @@ b{
     }
     .logo-l{
     height: 60vw;
-}
+    }
+    .center{
+        padding: 170px 0;
+    }
+    .type p{
+        font-size: 3vw;
+    }
 }
 
