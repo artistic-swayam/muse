@@ -94,6 +94,44 @@ function changeBg(){
     }
   });
 }
+
+
+function carousel(){
+  const track = document.querySelector('.carousel-track');
+const images = document.querySelectorAll('.carousel img');
+const prevBtn = document.querySelector('.btn.left');
+const nextBtn = document.querySelector('.btn.right');
+
+let index = 0;
+const total = images.length;
+
+function updateCarousel() {
+  const width = document.querySelector('.carousel').offsetWidth;
+  track.style.transform = `translateX(-${index * width}px)`;
+}
+
+function nextSlide() {
+  index = (index + 1) % total;
+  updateCarousel();
+}
+
+function prevSlide() {
+  index = (index - 1 + total) % total;
+  updateCarousel();
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+// Auto slide every 5s
+setInterval(nextSlide, 5000);
+
+// ✅ Recalculate on window resize
+window.addEventListener('resize', updateCarousel);
+
+}
+
+carousel();
 reveal();
 menu();
 changeBg();
