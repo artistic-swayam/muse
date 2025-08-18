@@ -485,7 +485,7 @@ b{
   cursor: pointer;
   padding: 5px;
   transition: transform 0.2s;
-
+  z-index: 5;
 }
 
 .btn:hover {
