@@ -31,6 +31,19 @@ closeBtn.addEventListener("click", () => {
     }
   });
 });
+
+menu.addEventListener("click",()=>{
+  gsap.to(menu, { 
+    x: "-100%", 
+    duration: 0.6, 
+    ease: "power3.in",
+    onComplete: () => { 
+      menu.style.display = "none"; 
+      closeBtn.style.display = "none"; // hide close button only after animation
+      openBtn.style.display = "block"; 
+    }
+  });
+})
 }
 function reveal(){
   gsap.registerPlugin(SplitText) 
