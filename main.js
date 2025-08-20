@@ -82,7 +82,58 @@ gsap.from(split_others.lines, {
     // for debugging
   }
 });
-  
+  gsap.utils.toArray(".client-work").forEach((el) => {
+    gsap.fromTo(el,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%", // when element hits 80% of viewport
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  // Animate .left
+  gsap.utils.toArray(".left").forEach((el) => {
+    gsap.fromTo(el,
+      { x: -100, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%", scrub:true,
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  // Animate .right
+  gsap.utils.toArray(".right").forEach((el) => {
+    gsap.fromTo(el,
+      { x: 100, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%", scrub:true,
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
 }
  gsap.registerPlugin(ScrollTrigger);
 function changeBg(){
