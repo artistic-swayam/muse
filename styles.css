@@ -375,6 +375,11 @@ b{
     background-color: #392035;
      position: relative;
 }
+.services{
+
+    background: #392035;
+    padding: 100px 30px;
+}
 .about::before {
   content: "";
   position: absolute;
@@ -391,11 +396,23 @@ b{
   filter: opacity(0.2); /* fades only the pattern */
   z-index: 0;
 }
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("pattern.png") repeat;
+  filter: opacity(0.2); /* fades only the pattern */
+  z-index: 0;
+}
 .about h1 , b ,img{
     z-index: 1;
     position: relative;
 }
 .work h1 , b ,img , div ,h3{
+    z-index: 1;
+    position: relative;
+}
+.services h1 , b ,img , div ,h3,a {
     z-index: 1;
     position: relative;
 }
@@ -529,12 +546,12 @@ b{
 .c-img{
     background-size: contain;
     background-repeat: no-repeat;
- 
+    border-radius: 8px;
 }
 .r-img{
     background-size: contain;
     background-repeat: no-repeat;
-
+    border-radius: 8px;
 }
 .c1{
     background-image: url("c1.jpeg");
@@ -645,16 +662,154 @@ b{
 }
 .vid{
         height: 100%;
+        border-radius: 8px;
 }
 .r-img{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 }
 .client-work{
     margin: 5vh auto;
 }
+
+
+
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      background: #392035;
+      padding: 100px 20px;
+      text-align: center;
+
+
+      color: #EFDBA0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-family: var(--1st-font);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-family: var(--4th-font);
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+      font-family: var(--2nd-font);
+    }
+
+    .hero a:hover {
+      background: #333;
+    }
+
+    .service {
+      display: flex;
+      height: 35vh;
+
+      gap: 20px;
+      padding: 40px;
+      margin: 20px 0;
+      border: 2px solid #EFDBA0;
+      border-radius: 8px;
+      background: #392035;
+    }
+    .service-text{
+        width: 50%;
+    }
+    .service-visual{
+        width: 50%;
+    }
+    .service-text h2 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+      font-family: var(--1st-font);
+      color: #EFDBA0;
+    }
+
+    .service-text p {
+      font-size: 1rem;
+      color: var(--2nd);
+    }
+
+    .service-visual {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .cta {
+      background: #EFDBA0;
+      text-align: center;
+      padding: 80px 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-family: var(--1st-font);
+    }
+
+    .cta a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+      font-family: var(--2nd-font);
+    }
+
+    .cta a:hover {
+      background: #333;
+    }
+    .service b{
+      font-size: 1vw;
+      font-family: var(--4th-font);
+      padding: 50px 0;
+      color: #EFDBA0;
+    }
+    
+    /* Responsive */
+    @media(max-width: 768px) {
+      .service {
+        grid-template-columns: 1fr;
+        height: 100%;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
 @media (max-width:1100px) {
+    .hero p{
+        font-size: 1rem;
+    }
     .vid{
         height: 100%;
     }
@@ -769,6 +924,18 @@ b{
     
 }
 @media (max-width:750px) {
+    .service{
+        flex-direction: column;
+    }
+    .service-text{
+        width: 100%;
+    }
+    .service-visual{
+        width: 100%;
+    }
+    .service b{
+        font-size: 2.5vw;
+    }
     .about b{
         font-size: 2.5vw;
     }
