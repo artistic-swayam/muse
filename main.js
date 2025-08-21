@@ -294,3 +294,20 @@ buttons.forEach(btn => {
     hoverCircle.style.transformOrigin = `center center`;
   });
 });
+const monthlyBtn = document.getElementById('monthly');
+const annuallyBtn = document.getElementById('annually');
+const sm = document.querySelector(".sm");
+const im = document.querySelector(".im");
+
+  monthlyBtn.addEventListener("click",()=>{
+    monthlyBtn.classList.add('active');
+    annuallyBtn.classList.remove('active');
+    sm.classList.remove("no");
+    im.classList.add("no");
+  })
+  annuallyBtn.addEventListener("click",()=>{
+    annuallyBtn.classList.add('active');
+    monthlyBtn.classList.remove('active');
+    im.classList.remove("no");
+    sm.classList.add("no");
+  })
