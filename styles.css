@@ -802,7 +802,7 @@ b{
     }
     .service b{
       font-size: 1vw;
-      font-family: var(--4th-font);
+      /* font-family: var(--4th-font); */
       padding: 50px 0;
       color: #EFDBA0;
     }
@@ -959,9 +959,39 @@ b{
     .no{
         display: none;
     }
- 
     
-    
+    .card a{
+        text-decoration: none;
+    }
+    .contact{
+        height: 100vh;
+        width: 100vw;
+        background: #EFDBA0;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .c-up{
+        height: 60%;
+    }
+    .c-down{
+        margin: 0 10px;
+        height: 40%;
+        display: flex;
+        align-items:flex-end;
+        justify-content: center;
+        background-color: #392035;
+        border-radius: 8px;
+    }
+    .c-h1{
+        height: 100%;
+        width: 100%;
+        font-size: 15vw;
+        text-align: center;
+        color: #EFDBA0;
+        font-family: var(--1st-font);
+    }
+
     /* Responsive */
     @media(max-width: 768px) {
       .service {
@@ -1005,12 +1035,8 @@ b{
     .c-name , .c-link{
         padding: 5px 20px;
     }
-    .pages{
-        display: none;
-    }
-    .icon-area{
-        display: block;
-    }
+    
+    
         .o-link {
         font-size: var(--font-small);
     }
@@ -1018,7 +1044,7 @@ b{
         font-size: 12px;
     }
     .links a{
-    font-size: 10vw;
+    font-size: 8vw;
     }
     .icon{
         font-size: 4vw;
@@ -1091,6 +1117,12 @@ b{
     
 }
 @media (max-width:750px) {
+    .icon-area{
+        display: block;
+    }
+    .pages{
+        display: none;
+    }
     .service-text i{
         font-size: .4vw;
     }
