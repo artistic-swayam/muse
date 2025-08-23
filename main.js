@@ -227,7 +227,9 @@ splitTypes.forEach((char,i)=>{
 
     },
     stagger:0.1,
-    opacity:0.2,
+    opacity:0,
+    y:5,
+    rotate:"90deg"
   })
 })
 
@@ -263,9 +265,9 @@ elements.forEach((el) => {
 
     gsap.from(splitText.chars, {
       opacity:0,
-      y: 20,
+      y: 8,
       stagger: 0.06,
-      duration: 0.7,
+      duration: 0.4,
       ease: "power2.out",
     });
   });
