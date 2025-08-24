@@ -1,6 +1,7 @@
 
 const tl = gsap.timeline();
 const link=document.querySelector(".link");
+const nav1 = document.querySelector(".nav1");
 
 //animations
 
@@ -140,22 +141,27 @@ function changeBg(){
   gsap.to(".change", {
     backgroundColor: "#EFDBA0",
     scrollTrigger: {
-      trigger: ".about",     // section to watch
-      start: "top center",   // when top of .about hits center of viewport
-      end: "bottom center",  // when bottom of .about hits center
+      trigger: ".contact",     // section to watch
+      start: "top bottom",   // when top of .about hits center of viewport
+      end: "bottom bottom",  // when bottom of .about hits center
       scrub: true,           // smooth animation tied to scroll
-    }
+    },
+    onComplete: () => {
+    nav1.style.position = "relative";
+    console.log('d')
+  }
   });
 
   // Optional: change back to original when leaving
   gsap.to(".change", {
     backgroundColor: "#392035",
     scrollTrigger: {
-      trigger: ".about",
+      trigger: ".contact",
       start: "bottom center",
       end: "bottom top",
       scrub: true,
-    }
+    },
+    
   });
 }
 
