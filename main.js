@@ -4,6 +4,123 @@ const link=document.querySelector(".link");
 const nav1 = document.querySelector(".nav1");
 
 //animations
+function loader(){
+  gsap.registerPlugin(CustomEase)
+  CustomEase.create("hop", "0.9, 0 , 0.1, 1");
+
+  document.addEventListener("DOMContentLoaded",()=>{
+    const tl = gsap.timeline({
+      delay: 0.3,
+      defaults: {
+        ease:"hop",
+      }
+    })
+    const counts = document.querySelectorAll(".count");
+    counts.forEach((count, index)=>{
+      const digits = count.querySelectorAll(".digit h1");
+
+      tl.to(
+        digits,{
+          y:"0%",
+          duration:1,
+          stagger:0.075,
+
+        },
+        index*1
+      );
+
+      if(index < counts.length){
+        tl.to(
+          digits,{
+            y:"-100%",
+            duration:1,
+            stagger:0.075,
+          },
+          index*1+1
+        );
+      }
+    });
+    tl.to(".spinner",{
+      opacity:0,
+      duration:0.3,
+
+    });
+
+    tl.to(".word h1",{
+      y:"0%",
+      duration:1,
+    },"<");
+
+    tl.to(".divider",{
+      scaleY:"100%",
+      duration:1,
+      onComplete: ()=>
+        gsap.to(".divider",{
+          opacity:0,
+          duration:0.4,
+          delay:0.3
+        }),
+      
+    });
+
+
+    tl.to("#word-1 h1",{
+      y:"100%",
+      duration:1,
+      delay:0.3,
+    });
+
+    tl.to("#word-2 h1",{
+      y:"-102%",
+      duration:1,
+    },"<");
+
+
+    tl.to(".block",{
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%,0% 0%)",
+      duration:1,
+      stagger:0.1,
+      delay:0.75,
+      onStart:()=> gsap.to("hero-img",{
+        scale:1,
+        duration:2,
+        ease: "hop"
+      }) 
+        
+    });
+    tl.from(
+      [".nav1"],{
+        // y:0,
+        y:"-100%",
+        duration: 2.3,
+        stagger:0.2,
+        opacity:0
+      },
+      "<"
+    );
+    tl.from(
+      [".type p",".button"],{
+        // y:0,
+        y:"100%",
+        duration: 2.3,
+        stagger:0.2,
+        opacity:0
+      },
+      "<"
+    )
+
+    
+   
+  });
+
+
+}
+loader();
+
+
+
+
+
 
 function menu(){
   const openBtn = document.querySelector(".open");
@@ -14,7 +131,7 @@ openBtn.addEventListener("click", () => {
   menu.style.display = "block";
   gsap.fromTo(menu, 
     { x: "-100%" }, 
-    { x: "0%", duration: 0.6, ease: "power3.out" }
+    { x: "0%", duration: 0.6, ease: "power3.out",}
   );
   openBtn.style.display = "none";
   closeBtn.style.display = "block";
@@ -84,6 +201,22 @@ gsap.from(split_others.lines, {
   }
 });
   gsap.utils.toArray(".client-work").forEach((el) => {
+    gsap.fromTo(el,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%", // when element hits 80% of viewport
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+  gsap.utils.toArray(".r").forEach((el) => {
     gsap.fromTo(el,
       { y: 50, opacity: 0 },
       {
